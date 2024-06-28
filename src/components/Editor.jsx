@@ -139,11 +139,11 @@ const RichTextEditor = () => {
     return (
         <div className={"flex flex-col w-full max-w-2xl text-text"}>
             <div className={"py-11 border border-primary aspect-[4/5] outline-none w-full px-4"}>
-                <input type="text" className={"text-2xl py-5 w-full outline-none font-bold"} placeholder={"Title"} />
+                <input type="text" className={"text-2xl py-5 w-full outline-none font-bold"} placeholder={"Add post title"} />
                 <div className="">
-                    <div className="flex flex-row border rounded-sm w-fit items-center divide-x">
+                    <div className={"flex flex-row border rounded-sm w-fit items-center divide-x transition-all " + (content.length === 0 ? "opacity-0" : "")}>
                         <div className="mr-2">
-                            <select name="" id="" className={"px-2 font-light text-sm"} onChange={(e) => formatText('header', e.target.value)}>
+                            <select name="" id="" className={"px-4 font-light text-xs"} onChange={(e) => formatText('header', e.target.value)}>
                                 <option value="4">Paragraph</option>
                                 <option value="1">Heading 1</option>
                                 <option value="2">Heading 2</option>
@@ -154,22 +154,22 @@ const RichTextEditor = () => {
                             </select>
                         </div>
                         <div className="flex flex-row px-1">
-                            <button onClick={() => toggleModal("link")} className={"px-3 py-3.5"}><LinkIcon className={"w-4 aspect-square"} /></button>
-                            <button onClick={() => attachItems()} className={"px-3 py-3.5"}><PhotoIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => toggleModal("link")} className={"px-3 py-3"}><LinkIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => attachItems()} className={"px-3 py-3"}><PhotoIcon className={"w-4 aspect-square"} /></button>
                         </div>
                         <div className="flex flex-row px-1">
-                            <button onClick={() => formatText('align', 'left')} className={"px-3 py-3.5"}><Bars3BottomLeftIcon className={"w-4 aspect-square"} /></button>
-                            <button onClick={() => formatText('align', 'right')} className={"px-3 py-3.5"}><Bars3BottomRightIcon className={"w-4 aspect-square"} /></button>
-                            <button onClick={() => formatText('align', 'center')} className={"px-3 py-3.5"}><Bars3CenterLeftIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => formatText('align', 'left')} className={"px-3 py-3"}><Bars3BottomLeftIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => formatText('align', 'right')} className={"px-3 py-3"}><Bars3BottomRightIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => formatText('align', 'center')} className={"px-3 py-3"}><Bars3CenterLeftIcon className={"w-4 aspect-square"} /></button>
                         </div>
                         <div className="flex flex-row px-1">
-                            <button onClick={() => formatText('bold', true)} className={"px-3 py-3.5 text-xs text-center flex justify-center items-center font-bold"}>B</button>
-                            <button onClick={() => formatText('italic', true)} className={"px-3 py-3.5 text-xs text-center flex justify-center items-center font-bold italic"}>I</button>
+                            <button onClick={() => formatText('bold', true)} className={"px-3 py-3 text-xs text-center flex justify-center items-center font-bold"}>B</button>
+                            <button onClick={() => formatText('italic', true)} className={"px-3 py-3 text-xs text-center flex justify-center items-center font-bold italic"}>I</button>
                         </div>
                         <div className="flex flex-row px-1">
-                            <button onClick={() => formatText('list', 'bullet')} className={"px-3 py-3.5"}><ListBulletIcon className={"w-4 aspect-square"} /></button>
-                            <button onClick={() => formatText('list', 'ordered')} className={"px-3 py-3.5"}><ListBulletIcon className={"w-4 aspect-square"} /></button>
-                            <button onClick={() => formatText('removeFormat')} className={"px-3 py-3.5"}><QueueListIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => formatText('list', 'bullet')} className={"px-3 py-3"}><ListBulletIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => formatText('list', 'ordered')} className={"px-3 py-3"}><ListBulletIcon className={"w-4 aspect-square"} /></button>
+                            <button onClick={() => formatText('removeFormat')} className={"px-3 py-3"}><QueueListIcon className={"w-4 aspect-square"} /></button>
                         </div>
                     </div>
                 </div>
@@ -178,6 +178,7 @@ const RichTextEditor = () => {
                         ref={editorRef}
                         value={content}
                         onChange={handleChange}
+                        placeholder={"Add content"}
                         modules={modules}
                         style={{
                             outline: "none",
@@ -235,7 +236,7 @@ const RichTextEditor = () => {
                 </div>
             </div>
             <div className="text-right text-gray-600 text-[10px] px-4 py-2 border border-t-0 border-primary mb-4">
-                {content.replace(/<\/?[\w\s="/.':;#-\/\?]+>/gi, "").length} words
+                {content.trim().split(/\s+/).filter(word => word !== '').length} words
             </div>
 
             <button className={"bg-[#0A7227] rounded-lg text-white ml-auto block w-fit py-2 px-4"}>Post</button>
