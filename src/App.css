@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ql-container.ql-snow {
+    border: none!important;
+}
+
+.ql-editor {
+    padding-left: 8px!important;
+    padding-right: 8px!important;
+    padding-bottom: 48px!important;
+}
+
+.quill::-webkit-scrollbar {
+    width: 0;
+}
