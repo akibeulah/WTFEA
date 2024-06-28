@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .ql-container.ql-snow {
     border: none!important;
 }
@@ -14,4 +18,8 @@
 
 .quill::-webkit-scrollbar {
     width: 0;
+}
+
+.disappear {
+    transform: rotateY(90deg);
 }

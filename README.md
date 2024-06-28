@@ -1,8 +1,21 @@
-# React + Vite
+# Rich Text Editor with React and ReactQuill
+This project is a rich text editor built using React and ReactQuill, designed as part of an assessment for Wazobia Technologies.
+Visit it here: https://wtfea.onrender.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+I started building the RichTextEditor from scratch but realised that may not have been the expected approach, but you can find the code for that in `components/RichTextEditor.jsx`
 
-Currently, two official plugins are available:
+## Features
+- Text Formatting: Bold, italic, alignment (left, center, right), lists (bullet, ordered), headings (H1 to H6).
+- Embeds: Insert links and photos with interactive menus. 
+- Modal: Included modal for additional content or features.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+* React
+* ReactQuill
+* Tailwind CSS (for styling)
+
+## Getting Started
+To get started with this project, follow these steps:
+* Clone the repository: `git clone git@github.com:akibeulah/WTFEA.git`
+* Install dependencies: `npm install` 
+* Run the development server: `npm run dev`
